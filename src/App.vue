@@ -1,7 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ABBAHeader from './components/ABBAHeader.vue';
+import ABBAForm from './components/ABBAForm.vue';
+</script>
 
 <template>
-  <p>Yet Another Baby Bets App</p>
+  <ABBAHeader />
+  <ABBAForm />
 </template>
 
-<style scoped></style>
+<style lang="scss">
+@use './assets/base.scss';
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+</style>
