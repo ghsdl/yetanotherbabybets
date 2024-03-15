@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { RouterView } from 'vue-router';
 import ABBAHeader from './components/ABBAHeader.vue';
-import ABBAForm from './components/ABBAForm.vue';
 </script>
 
 <template>
   <ABBAHeader />
-  <ABBAForm />
+  <RouterView />
 </template>
 
 <style lang="scss">

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBabyCarriage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -8,22 +9,22 @@ library.add(faBabyCarriage);
 <template>
   <header class="p-20 d-flex flex-row align-items-center">
     <nav class="d-flex flex-fill">
-      <a href="#" class="d-flex flex-row align-items-center mr-20 flex-fill">
+      <RouterLink to="/" class="d-flex flex-row align-items-center mr-20 flex-fill">
         <font-awesome-icon icon="baby-carriage" class="logo mr-15" />
         <h1 class="name">Another Baby Bets App</h1>
-      </a>
+      </RouterLink>
       <ul class="d-flex flex-row">
         <li class="mr-20">
-          <a href="#" class="link link-underline">Accueil</a>
+          <RouterLink to="/pronos" class="link link-underline">Voir les pronos</RouterLink>
         </li>
         <li class="mr-20">
-          <a href="#" class="link link-underline">FAQ</a>
+          <RouterLink to="/faq" class="link link-underline">FAQ</RouterLink>
         </li>
         <li class="mr-20">
-          <a href="#" class="link link-underline">Connexion</a>
+          <RouterLink to="/login" class="link link-underline">Connexion</RouterLink>
         </li>
         <li>
-          <a href="#" class="link link-underline">Déconnexion</a>
+          <RouterLink to="/logout" class="link link-underline">Déconnexion</RouterLink>
         </li>
       </ul>
     </nav>
