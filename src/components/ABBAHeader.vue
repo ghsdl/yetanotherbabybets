@@ -1,9 +1,26 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import { computed } from 'vue';
+import { RouterLink, useRouter } from 'vue-router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBabyCarriage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(faBabyCarriage);
+import store from '../stores/index';
+import { supabase } from '../supabase/supabase';
+
+const user = computed(() => store.state.user);
+
+const router = useRouter();
+
+const logout = async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    console.error('Error logging out:', error.message);
+  } else {
+    store.methods.setUser(null);
+    router.push('/');
+  }
+};
 </script>
 
 <template>
@@ -20,12 +37,13 @@ library.add(faBabyCarriage);
         <li class="mr-20">
           <RouterLink to="/faq" class="link link-underline">FAQ</RouterLink>
         </li>
-        <li class="mr-20">
-          <RouterLink to="/login" class="link link-underline">Admin</RouterLink>
+        <li v-if="!user" class="mr-20">
+          <RouterLink to="/login" class="link link-underline">Connexion</RouterLink>
         </li>
-        <li>
-          <RouterLink to="/logout" class="link link-underline">Déconnexion</RouterLink>
+        <li v-if="user" class="mr-20">
+          <RouterLink to="/dashboard" class="link link-underline">Dashboard</RouterLink>
         </li>
+        <li v-if="user" @click="logout" class="logout link link-underline">Déconnexion</li>
       </ul>
     </nav>
   </header>
@@ -39,18 +57,25 @@ header {
     .logo {
       font-size: 36px;
       color: var(--primary-2);
+      cursor: pointer;
     }
     .name {
       font-weight: 700;
       font-size: 36px;
       color: var(--primary-2);
       font-family: var(--font-family-secondary);
+      cursor: pointer;
     }
   }
 
   .link {
     position: relative;
     white-space: nowrap;
+  }
+
+  .logout {
+    color: var(--text-primary-color);
+    cursor: pointer;
   }
 
   .link::before,
