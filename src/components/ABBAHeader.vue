@@ -21,7 +21,7 @@ library.add(faBabyCarriage);
           <RouterLink to="/faq" class="link link-underline">FAQ</RouterLink>
         </li>
         <li class="mr-20">
-          <RouterLink to="/login" class="link link-underline">Connexion</RouterLink>
+          <RouterLink to="/login" class="link link-underline">Admin</RouterLink>
         </li>
         <li>
           <RouterLink to="/logout" class="link link-underline">Déconnexion</RouterLink>

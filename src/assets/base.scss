@@ -1,6 +1,6 @@
 :root {
-  --primary-1: #4c6982;
-  --primary-2: #b4ffd8;
+  --primary-1: #2e253f;
+  --primary-2: #f4a15f;
   --danger-1: #e63946;
   --danger-2: #c81927;
   --success-1: #33c1b1;
@@ -12,13 +12,16 @@
   --text-primary-color: #ffffff;
 
   --border: 1px solid var(--gray-2);
-  --border-radius: 4px;
+  --border-radius: 6px;
+  --box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
   --font-family: 'Poppins', sans-serif;
   --font-family-secondary: 'Amatic SC', sans-serif;
 }
 
 // reset
+
 * {
   box-sizing: border-box;
 }
